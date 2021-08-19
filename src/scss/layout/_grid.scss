@@ -1,0 +1,415 @@
+/// grid variables
+$breakpoints: getProps(breakpoints);
+$columns-max: getGridProps(columns-max);
+$rows-max: getGridProps(rows-max);
+$grid-gap--group: getGridProps(grid-gap);
+$column-gap--group: getGridProps(column-gap);
+$row-gap--group: getGridProps(row-gap);
+ 
+.grid {
+	@extend %block-grid;
+	justify-items: getAlignment(justify-items);
+	align-items: getAlignment(align-items);
+	justify-content: getAlignment(justify-content);
+	align-content: getAlignment(align-content);
+	grid-template-columns: minmax(0, 1fr); // default column count
+
+	/// column templates
+	@for $i from 1 through $columns-max {
+		&.columns--#{$i} {
+			grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
+		}
+
+		@each $breakpoint, $map in $breakpoints {
+			@include for-size($breakpoint) {
+				&.#{$breakpoint}\:columns--#{$i} {
+					grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
+				}
+			}
+		}
+	}
+	&.columns--33-66 {
+			grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+	}
+	&.columns--66-33 {
+			grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+	}
+	&.columns--25-75 {
+			grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+	}
+	&.columns--75-25 {
+			grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+	}
+	&.columns--20-80 {
+			grid-template-columns: minmax(0, 1fr) minmax(0, 4fr);
+	}
+	&.columns--80-20 {
+			grid-template-columns: minmax(0, 4fr) minmax(0, 1fr);
+	}
+	&.columns--25-50-25 {
+			grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+	}
+	&.columns--25-25-50 {
+			grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 2fr);
+	}
+	&.columns--50-25-25 {
+			grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
+	}
+	@each $breakpoint, $map in $breakpoints {
+		@include for-size($breakpoint) {
+			&.#{$breakpoint}\:columns--33-66 {
+			grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+			}
+			&.#{$breakpoint}\:columns--66-33 {
+					grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+			}
+			&.#{$breakpoint}\:columns--25-75 {
+					grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+			}
+			&.#{$breakpoint}\:columns--75-25 {
+					grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+			}
+			&.#{$breakpoint}\:columns--20-80 {
+					grid-template-columns: minmax(0, 1fr) minmax(0, 4fr);
+			}
+			&.#{$breakpoint}\:columns--80-20 {
+					grid-template-columns: minmax(0, 4fr) minmax(0, 1fr);
+			}
+			&.#{$breakpoint}\:columns--25-50-25 {
+					grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+			}
+			&.#{$breakpoint}\:columns--25-25-50 {
+					grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 2fr);
+			}
+			&.#{$breakpoint}\:columns--50-25-25 {
+					grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
+			}
+		}
+	}
+
+	/// row templates
+	@for $i from 1 through $rows-max {
+		&.rows--#{$i} {
+			grid-template-rows: repeat(#{$i}, minmax(0, 1fr));
+		}
+
+		@each $breakpoint, $map in $breakpoints {
+			@include for-size($breakpoint) {
+				&.#{$breakpoint}\:rows--#{$i} {
+					grid-template-rows: repeat(#{$i}, minmax(0, 1fr));
+				}
+			}
+		}
+	}
+
+	/// grid-gap
+	@each $size, $value in $grid-gap--group {
+		&.grid-gap--#{$size} {
+			grid-gap: calc(#{$value}*.75); 
+			@include for-size(sm) {
+				grid-gap: calc(#{$value}*.875);
+			}
+			@include for-size(md) {
+				grid-gap: #{$value};
+			}
+			@include for-size(lg) {
+				grid-gap: calc(#{$value}*1.25);
+			}
+			@include for-size(xl) {
+				grid-gap: calc(#{$value}*1.5);
+			}
+		}
+
+		@each $breakpoint, $map in $breakpoints {
+			@include for-size($breakpoint) {
+				&.#{$breakpoint}\:grid-gap--#{$size} {
+					grid-gap: calc(#{$value}*.75); 
+					@include for-size(sm) {
+						grid-gap: calc(#{$value}*.875);
+					}
+					@include for-size(md) {
+						grid-gap: #{$value};
+					}
+					@include for-size(lg) {
+						grid-gap: calc(#{$value}*1.25);
+					}
+					@include for-size(xl) {
+						grid-gap: calc(#{$value}*1.5);
+					}
+				}
+			}
+		}
+	}
+
+	/// column-gap
+	@each $size, $value in $column-gap--group {
+		&.column-gap--#{$size} {
+			column-gap: calc(#{$value}*.75); 
+			@include for-size(sm) {
+				column-gap: calc(#{$value}*.875);
+			}
+			@include for-size(md) {
+				column-gap: #{$value};
+			}
+			@include for-size(lg) {
+				column-gap: calc(#{$value}*1.25);
+			}
+			@include for-size(xl) {
+				column-gap: calc(#{$value}*1.5);
+			}
+		}
+		@each $breakpoint, $map in $breakpoints {
+			@include for-size($breakpoint) {
+				&.#{$breakpoint}\:column-gap--#{$size} {
+					column-gap: calc(#{$value}*.75); 
+					@include for-size(sm) {
+						column-gap: calc(#{$value}*.875);
+					}
+					@include for-size(md) {
+						column-gap: #{$value};
+					}
+					@include for-size(lg) {
+						column-gap: calc(#{$value}*1.25);
+					}
+					@include for-size(xl) {
+						column-gap: calc(#{$value}*1.5);
+					}
+				}
+			}
+		}
+	}
+
+	/// row-gap
+	@each $size, $value in $row-gap--group {
+		&.row-gap--#{$size} {
+			row-gap: calc(#{$value}*.75);
+			@include for-size(sm) {
+				row-gap: calc(#{$value}*.875);
+			}
+			@include for-size(md) {
+				row-gap: #{$value};
+			}
+			@include for-size(lg) {
+				row-gap: calc(#{$value}*1.25);
+			}
+			@include for-size(xl) {
+				row-gap: calc(#{$value}*1.5);
+			}
+		}
+		@each $breakpoint, $map in $breakpoints {
+			@include for-size($breakpoint) {
+				&.#{$breakpoint}\:row-gap--#{$size} {
+					row-gap: calc(#{$value}*.75);
+					@include for-size(sm) {
+						row-gap: calc(#{$value}*.875);
+					}
+					@include for-size(md) {
+						row-gap: #{$value};
+					}
+					@include for-size(lg) {
+						row-gap: calc(#{$value}*1.25);
+					}
+					@include for-size(xl) {
+						row-gap: calc(#{$value}*1.5);
+					}
+				}
+			}
+		}
+	}
+
+	/// justify items
+	&.justify-items--left {
+		justify-items: start;
+	}
+
+	&.justify-items--right {
+		justify-items: end;
+	}
+
+	&.justify-items--center {
+		justify-items: center;
+	}
+
+	&.justify-items--stretch {
+		justify-items: stretch;
+	}
+	&.justify-items--space-between {
+		justify-items: center;
+
+		> *:first-child {
+			justify-self: start;
+		}
+
+		> *:last-child {
+			justify-self: end;
+		}
+	}
+	@each $breakpoint, $map in $breakpoints {
+			@include for-size($breakpoint) {
+			&.#{$breakpoint}\:justify-items--left {
+				justify-items: start;
+			}
+			&.#{$breakpoint}\:justify-items--right {
+				justify-items: end;
+			}
+			&.#{$breakpoint}\:justify-items--center {
+				justify-items: center;
+			}
+			&.#{$breakpoint}\:justify-items--stretch {
+				justify-items: stretch;
+			}
+		}
+	}
+
+	/// align items
+	&.align-items--top {
+		align-items: start;
+	}
+	&.align-items--bottom {
+		align-items: end;
+	}
+	&.align-items--center {
+		align-items: center;
+	}
+	&.align-items--stretch {
+		align-items: stretch;
+	}
+	@each $breakpoint, $map in $breakpoints {
+		@include for-size($breakpoint) {
+			&.#{$breakpoint}\:align-items--top {
+				align-items: start;
+			}
+			&.#{$breakpoint}\:align-items--bottom {
+				align-items: end;
+			}
+			&.#{$breakpoint}\:align-items--center {
+				align-items: center;
+			}
+			&.#{$breakpoint}\:align-items--stretch {
+				align-items: stretch;
+			}
+		}
+	}
+
+	/// justify items
+	&.justify-content--left {
+		justify-content: start;
+	}
+	&.justify-content--right {
+		justify-content: end;
+	}
+	&.justify-content--center {
+		justify-content: center;
+	}
+	&.justify-content--stretch {
+		justify-content: stretch;
+	}
+	&.justify-content--space-around {
+		justify-content: space-around;
+	}
+	&.justify-content--space-between {
+		justify-content: space-between;
+	}
+	&.justify-content--space-evenly {
+		justify-content: space-evenly;
+	}
+	@each $breakpoint, $map in $breakpoints {
+		@include for-size($breakpoint) {
+			&.#{$breakpoint}\:justify-content--left {
+				justify-content: start;
+			}
+			&.#{$breakpoint}\:justify-content--right {
+				justify-content: end;
+			}
+			&.#{$breakpoint}\:justify-content--center {
+				justify-content: center;
+			}
+			&.#{$breakpoint}\:justify-content--stretch {
+				justify-content: stretch;
+			}
+			&.#{$breakpoint}\:justify-content--space-around {
+				justify-content: space-around;
+			}
+			&.#{$breakpoint}\:justify-content--space-between {
+				justify-content: space-between;
+			}
+			&.#{$breakpoint}\:justify-content--space-evenly {
+				justify-content: space-evenly;
+			}
+		}
+	}
+
+	/// align items
+	&.align-content--top {
+		align-content: start;
+	}
+	&.align-content--bottom {
+		align-content: end;
+	}
+	&.align-content--center {
+		align-content: center;
+	}
+	&.align-content--stretch {
+		align-content: stretch;
+	}
+	&.align-content--space-around {
+		align-content: space-around;
+	}
+	&.align-content--space-between {
+		align-content: space-between;
+	}
+	&.align-content--space-evenly {
+		align-content: space-evenly;
+	}
+	@each $breakpoint, $map in $breakpoints {
+		@include for-size($breakpoint) {
+			&.#{$breakpoint}\:align-content--top {
+				align-content: start;
+			}
+			&.#{$breakpoint}\:align-content--bottom {
+				align-content: end;
+			}
+			&.#{$breakpoint}\:align-content--center {
+				align-content: center;
+			}
+			&.#{$breakpoint}\:align-content--stretch {
+				align-content: stretch;
+			}
+			&.#{$breakpoint}\:align-content--space-around {
+				align-content: space-around;
+			}
+			&.#{$breakpoint}\:align-content--space-between {
+				align-content: space-between;
+			}
+			&.#{$breakpoint}\:align-content--space-evenly {
+				align-content: space-evenly;
+			}
+		}
+	}
+}
+
+.cell {
+	width: 100%;
+	height: auto;
+	display: inline-block;
+
+	// extends cell inside column to 100% width
+	&.auto-width {
+		width: auto;
+	}
+}
+
+
+
+@for $i from 1 through $columns-max {
+	.column-span--#{$i} {
+		grid-column: span #{$i};
+	}
+	@each $breakpoint, $map in $breakpoints {
+		@include for-size($breakpoint) {
+			.#{$breakpoint}\:column-span--#{$i} {
+				grid-column: span #{$i};
+			}
+		}
+	}
+}

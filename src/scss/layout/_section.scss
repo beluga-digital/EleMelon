@@ -1,0 +1,9 @@
+section.section {
+	@extend .inner-space--medium--top-bottom;
+
+	&.has--background-image {
+		@include background-property(no-repeat, cover, center);
+		margin: getSpacing(large) 0;
+		@extend .inner-space--large--top-bottom;
+	}
+}

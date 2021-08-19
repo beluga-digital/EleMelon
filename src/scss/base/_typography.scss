@@ -1,0 +1,75 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-top: getSpacing(large);
+	margin-bottom: getSpacing(medium);
+	color: getColor(font-headline);
+	font-weight: getTypo(headline-weight); 
+
+	@if getTypo(headline-auto-hyphens) {
+		@include hyphens(auto);
+	}
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+h1 {
+	font-size: nth(getTypo(h1-sizes), 1); // fallback font-size
+	font-size: clamp(getTypo(h1-sizes));
+	line-height: getTypo(h1-lheight);
+}
+
+h2 {
+	font-size: nth(getTypo(h2-sizes), 1); // fallback font-size
+	font-size: clamp(getTypo(h2-sizes));
+	line-height: getTypo(h2-lheight);
+}
+
+h3 {
+	font-size: nth(getTypo(h3-sizes), 1); // fallback font-size
+	font-size: clamp(getTypo(h3-sizes));
+	line-height: getTypo(h3-lheight);
+}
+
+h4 {
+	font-size: nth(getTypo(h4-sizes), 1); // fallback font-size
+	font-size: clamp(getTypo(h4-sizes));
+	line-height: getTypo(h4-lheight);
+}
+
+p {
+	font-size: nth(getTypo(base-sizes), 1); // fallback font-size
+	font-size: clamp(getTypo(base-sizes));
+	line-height: getTypo(base-lheight);
+	margin-bottom: getSpacing(small);
+	@if getTypo(base-auto-hyphens) == true {
+		@include hyphens(auto);
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+small {
+	font-size: nth(getTypo(small-sizes), 1);
+	font-size: clamp(getTypo(small-sizes));
+	line-height: getTypo(small-lheight);
+	margin-bottom: getSpacing(small);
+	@if getTypo(base-auto-hyphens) {
+		@include hyphens(auto);
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}

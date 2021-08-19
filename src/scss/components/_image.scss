@@ -1,0 +1,42 @@
+[class*=image] {
+	@extend %block;
+
+	img {
+		@extend %block;
+		object-fit: cover;
+		@include radius(getRadius(medium));
+	}
+
+	&.filter--black-white {
+		@include filter(grayscale(100%));
+	}
+
+	&.blend--multiply {
+		mix-blend-mode: multiply;
+	}
+}
+
+.image--landscape {
+	img {
+		aspect-ratio: 16 / 9;
+	}
+}
+
+.image--portrait {
+	img {
+		aspect-ratio: 9 / 16;
+	}
+}
+
+.image--square {
+	img {
+		aspect-ratio: 1;
+	}
+}
+
+.image--background {
+	position: absolute;
+	z-index: 0;
+	inset: 0;
+	@include background-property(no-repeat !important, cover !important, center !important);
+}

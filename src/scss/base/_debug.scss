@@ -1,0 +1,381 @@
+.elements-debug {
+	display: none;
+
+	@if getDebugProps(enable) {
+		display: block;
+		position: fixed;	
+		z-index: 999990;
+		top: 0;
+		left: 0;
+		pointer-events: none;
+		outline: none;
+		@include shadow(box, none);
+
+		&:after { 
+			display: none;
+		}
+	}
+}
+
+.debug--breakpoints {
+	display: none;
+
+	@if getDebugProps(breakpoints) {
+		display: flex;
+		align-items: center;
+		align-content: center;
+		position: fixed;	
+		z-index: 999991;
+		bottom: 0;
+		left: 0;
+		overflow: hidden;
+		@include radius(0 6px 0 0);
+		outline: none;
+		@include shadow(box, none);
+
+		&:after { 
+			display: none;
+		}
+
+		p {
+			background: rgba(0,0,0,0.5);
+			@include backdrop-filter(blur(10px));
+			font-size: 0.75rem;
+			color: #fff;
+			padding: getSpacing(small);
+			margin: 0;	
+		}
+
+		.window-size {
+			font-weight: 800;
+		}
+
+		.breakpoint {
+			display: none;
+
+			.short {
+				font-weight: 800;
+			}
+
+			&--base {
+				background: rgba(187, 46, 22, 0.75);
+
+				@media (max-width: getBreakpoint(sm) - 1px) {
+					display: block;
+				}
+			}
+
+			&--sm {
+				@media (min-width: getBreakpoint(sm)) and (max-width: getBreakpoint(md) - 1px) {
+					display: block;
+				}
+				background: rgba(208, 152, 10, 0.75);
+				.description {
+					&:after {
+						content: ' (<'+getBreakpoint(sm)+')';
+					}
+				} 
+			}
+
+			&--md {
+				@media (min-width: getBreakpoint(md)) and (max-width: getBreakpoint(lg) - 1px) {
+					display: block;
+				}
+				background: rgba(29, 145, 181, 0.75);
+				.description {
+					&:after {
+						content: ' (<'+getBreakpoint(md)+')';
+					}
+				} 
+			}
+
+			&--lg {
+				@media (min-width: getBreakpoint(lg)) and (max-width: getBreakpoint(xl) - 1px) {
+					display: block;
+				}
+				background: rgba(63, 154, 45, 0.75);
+				.description {
+					&:after {
+						content: ' (<'+getBreakpoint(lg)+')';
+					}
+				} 
+			}
+
+			&--xl {
+				@media (min-width: getBreakpoint(xl)) {
+					display: block;
+				}
+				background: rgba(73, 45, 131, 0.75);
+				.description {
+					&:after {
+						content: ' (<'+getBreakpoint(xl)+')';
+					}
+				} 
+			}
+		}
+	
+		&:before {
+			display: none;
+
+			content: 'base';
+			color: #fff;
+
+			@include for-size(sm) {
+				content: 'sm – small: >'+getBreakpoint(sm);
+				background: #d0980a;
+			}
+
+			@include for-size(md) {
+				content: 'md – medium: >'+getBreakpoint(md);
+			}
+
+			@include for-size(lg) {
+				content: 'lg – large: >'+getBreakpoint(lg);
+			}
+
+			@include for-size(xl) {
+				content: 'xl – extra-large: >'+getBreakpoint(xl);
+			}
+		}
+	}
+}
+
+.debug--layout {
+	display: none;
+
+	@if getDebugProps(layout, enable) {
+		display: flex;
+		justify-content: center;
+		align-items: stretch;
+		height: 100vh;
+		z-index: 999992;
+		outline: none;
+		@include shadow(box, none);
+
+		&:after { 
+			display: none;
+		}
+
+		span {
+			display: inline-block;
+			width: 5vw;
+			text-align: center;
+			padding-top: 1rem;
+			color: rgba(0,0,0,0.25);
+
+			&:after {
+				display: none;
+			}
+
+			&:nth-child(odd) {
+				background: getDebugProps(layout, color--dark);
+			}
+
+			&:nth-child(even) {
+				background: getDebugProps(layout, color--light);
+			}
+
+			@if getDebugProps(layout, lines) {
+				position: relative;
+				border-left: 1px solid darken(getDebugProps(layout, color--dark), 25%);
+
+				&:first-child {
+					border-left: none;
+				}
+
+				&:before {
+					content: '';
+					position: absolute;
+					left: 50%;
+					top: 0;
+					height: 100%;
+					width: 1px;
+					background: darken(getDebugProps(layout, color--dark), 25%);
+				}
+			}
+		}
+	}
+}
+
+
+@if getDebugProps(enable) {
+	@if getDebugProps(pesticide, enable) {
+		@if getDebugProps(pesticide, text) {
+			section, article, aside, header, nav, main, footer {
+				h1, h2, h3, h4, h5, h6, p, small, q, blockquote, span, figcaption {
+					outline: 2px dashed #6421ff;
+					@include shadow(box, 0 0 10px #8e5eff);
+					position: relative !important;
+
+					@if getDebugProps(pesticide, labels) {
+						&:after {
+							position: absolute;
+							z-index: 99999;
+							width: auto;
+							height: auto;
+							top: 0;
+							right: 0;
+							background: rgba(100, 33, 255, 0.75);
+							@include backdrop-filter(blur(10px));
+							padding: 5px 10px;
+							color: #fff;
+							font-size: 0.5rem;
+							line-height: 1;
+						}
+					}
+				}
+
+				@if getDebugProps(pesticide, labels) {
+					h1:after { content: 'h1'; }
+					h2:after { content: 'h2'; }
+					h3:after { content: 'h3'; }
+					h4:after { content: 'h4'; }
+					h5:after { content: 'h5'; }
+					h6:after { content: 'h6'; }
+					p:after { content: 'p'; }
+					small:after { content: 'small'; }
+					q:after { content: 'q'; }
+					blockquote:after { content: 'blockquote'; }
+					span:after { content: 'span'; }
+					figcaption:after { content: 'figcaption'; }
+				}
+			}
+		}
+		@if getDebugProps(pesticide, media) {
+			section, article, aside, header, nav, main, footer {
+				figure, video, audio, picture, iframe {
+					outline: 2px dashed #30a434;
+					@include shadow(box, 0 0 10px #5ed062);
+					position: relative !important;
+
+					@if getDebugProps(pesticide, labels) {
+						&:after {
+							display: block;
+							position: absolute;
+							z-index: 99999;
+							width: auto;
+							height: auto;
+							top: 0;
+							right: 0;
+							background: rgba(48, 164, 52, 0.75);
+							@include backdrop-filter(blur(10px));
+							padding: 5px 10px;
+							color: #fff;
+							font-size: 0.5rem;
+							line-height: 1;
+						}
+					}
+				}
+		
+				@if getDebugProps(pesticide, labels) {
+					figure:after { content: 'figure/img'; }
+					video:after { content: 'video'; }
+					audio:after { content: 'audio'; }
+					picture:after { content: 'picture'; }
+					iframe:after { content: 'iframe'; }
+				}
+			}
+		}
+		@if getDebugProps(pesticide, structure) {
+			div, section, article, aside, header, nav, main, footer {
+				outline: 2px dashed #ce8b27;
+				@include shadow(box, 0 0 10px #e8af5b);
+				position: relative;
+
+				@if getDebugProps(pesticide, labels) {
+					&:after {
+						position: absolute;
+						z-index: 99999;
+						width: auto;
+						height: auto;
+						top: 0;
+						right: 0;
+						background: rgba(206, 139, 39, 0.75);
+						@include backdrop-filter(blur(10px));
+						padding: 5px 10px;
+						color: #fff;
+						font-size: 0.5rem;
+						line-height: 1;
+					}
+				}
+			}
+	
+			@if getDebugProps(pesticide, labels) {
+				div:after { content: 'div'; }
+				section:after { content: 'section'; }
+				article:after { content: 'article'; }
+				aside:after { content: 'aside'; }
+				header:after { content: 'header'; }
+				nav:after { content: 'nav'; }
+				main:after { content: 'main'; }
+				footer:after { content: 'footer'; }
+			}
+		}
+
+		@if getDebugProps(pesticide, data-display) {
+			section, article, aside, header, nav, main, footer {
+				ul, ol, dl, table, form {
+					outline: 2px dashed #ce279f;
+					@include shadow(box, 0 0 10px #de5cb9);
+					position: relative;
+
+					@if getDebugProps(pesticide, labels) {
+						&:after {
+							position: absolute;
+							z-index: 99999;
+							width: auto;
+							height: auto;
+							top: -2px;
+							right: -2px;
+							background: #ce279f;
+							padding: 5px 10px;
+							color: #fff;
+							font-size: 0.5rem;
+							line-height: 1;
+							opacity: 0.75;
+						}
+					}
+				}
+		
+				@if getDebugProps(pesticide, labels) {
+					ul:after { content: 'ul'; }
+					ol:after { content: 'ol'; }
+					dl:after { content: 'dl'; }
+					table:after { content: 'table'; }
+					form:after { content: 'form'; }
+				}
+			}
+		}
+
+		@if getDebugProps(pesticide, links) {
+			section, article, aside, header, nav, main, footer {
+				a {
+					outline: 2px dashed #a92725;
+					@include shadow(box, 0 0 10px #d35956);
+					position: relative;
+
+					@if getDebugProps(pesticide, labels) {
+						&:after {
+							position: absolute;
+							z-index: 99999;
+							width: auto;
+							height: auto;
+							top: 0;
+							right: 0;
+							background: rgba(169, 39, 37, 0.75);
+							@include backdrop-filter(blur(10px));
+							padding: 5px 10px;
+							color: #fff;
+							font-size: 0.5rem;
+							line-height: 1;
+						}
+					}
+				}
+		
+				@if getDebugProps(pesticide, labels) {
+					a:after { content: 'a'; }
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,14 @@
+/// color adjustments
+/// @author dba.codes – Daniel Baumert
+/// @access public
+/// @param {String} $group - theme group which is defined in the grid configuration
+/// @param {String} $property - property name which is defined in the theme configuration
+
+/// lighten color
+@function colorLighten($color, $value) {
+	@return desaturate(lighten($color, $value), $value*0.7);
+}
+/// darken color
+@function colorDarken($color, $value) {
+	@return saturate(darken($color, $value), $value*0.35);
+}

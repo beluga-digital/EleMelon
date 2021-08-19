@@ -1,0 +1,14 @@
+[class*=menu--] {
+	@extend %block-flex;
+	flex-wrap: wrap;
+	
+	li {
+		list-style: none;
+	}
+}
+
+.menu--horizontal {
+	li {
+		margin-right: getSpacing(medium);
+	}
+}

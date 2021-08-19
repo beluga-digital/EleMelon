@@ -1,0 +1,6 @@
+@mixin background-size($values) {
+	background-size: $values;
+	-moz-background-size: $values;
+	-webkit-background-size: $values;
+	-o-background-size: $values;
+}

@@ -1,0 +1,696 @@
+/// blogal classes variables
+$breakpoints: getProps(breakpoints);
+$color--group: getThemeProps(colors);
+$spacing--group: getThemeProps(spacing);
+$radius--group: getThemeProps(radius);
+$shadow--group: getThemeProps(shadow);
+
+// background-color classes
+@each $color, $value in $color--group {
+	.bc--#{$color} {
+		background: $value;
+	}
+}
+
+// font-color classes
+@each $color, $value in $color--group {
+	.fc--#{$color} {
+		color: $value;
+	}
+}
+
+// margin and padding classes – inner and outer space
+@each $size, $value in $spacing--group {
+	// inner space
+	.inner-space--#{$size} {
+		padding: calc(#{$value}*.75); 
+		@include for-size(sm) {
+			padding: calc(#{$value}*.875);
+		}
+		@include for-size(md) {
+			padding: #{$value};
+		}
+		@include for-size(lg) {
+			padding: calc(#{$value}*1.25);
+		}
+		@include for-size(xl) {
+			padding: calc(#{$value}*1.5);
+		}
+	}
+	.inner-space--disable {
+		padding: 0;
+	}
+
+	.inner-space--#{$size}--top-bottom {
+		padding-top: calc(#{$value}*.75); 
+		padding-bottom: calc(#{$value}*.75); 
+		@include for-size(sm) {
+			padding-top: calc(#{$value}*.875);
+			padding-bottom: calc(#{$value}*.875);
+		}
+		@include for-size(md) {
+			padding-top: #{$value};
+			padding-bottom: #{$value};
+		}
+		@include for-size(lg) {
+			padding-top: calc(#{$value}*1.25);
+			padding-bottom: calc(#{$value}*1.25);
+		}
+		@include for-size(xl) {
+			padding-top: calc(#{$value}*1.5);
+			padding-bottom: calc(#{$value}*1.5);
+		}
+	}
+	.inner-space--disable--top-bottom {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	.inner-space--#{$size}--left-right {
+		padding-left: calc(#{$value}*.75); 
+		padding-right: calc(#{$value}*.75); 
+		@include for-size(sm) {
+			padding-left: calc(#{$value}*.875);
+			padding-right: calc(#{$value}*.875);
+		}
+		@include for-size(md) {
+			padding-left: #{$value};
+			padding-right: #{$value};
+		}
+		@include for-size(lg) {
+			padding-left: calc(#{$value}*1.25);
+			padding-right: calc(#{$value}*1.25);
+		}
+		@include for-size(xl) {
+			padding-left: calc(#{$value}*1.5);
+			padding-right: calc(#{$value}*1.5);
+		}
+	}
+	.inner-space--disable--left-right {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.inner-space--#{$size}--top {
+		padding-top: calc(#{$value}*.75); 
+		@include for-size(sm) {
+			padding-top: calc(#{$value}*.875);
+		}
+		@include for-size(md) {
+			padding-top: #{$value};
+		}
+		@include for-size(lg) {
+			padding-top: calc(#{$value}*1.25);
+		}
+		@include for-size(xl) {
+			padding-top: calc(#{$value}*1.5);
+		}
+	}
+	.inner-space--disable--top {
+		padding-top: 0;
+	}
+
+	.inner-space--#{$size}--bottom {
+		padding-bottom: calc(#{$value}*.75); 
+		@include for-size(sm) {
+			padding-bottom: calc(#{$value}*.875);
+		}
+		@include for-size(md) {
+			padding-bottom: #{$value};
+		}
+		@include for-size(lg) {
+			padding-bottom: calc(#{$value}*1.25);
+		}
+		@include for-size(xl) {
+			padding-bottom: calc(#{$value}*1.5);
+		}
+	}
+	.inner-space--disable--bottom {
+		padding-bottom: 0;
+	}
+
+	.inner-space--#{$size}--left {
+		padding-left: calc(#{$value}*.75); 
+		@include for-size(sm) {
+			padding-left: calc(#{$value}*.875);
+		}
+		@include for-size(md) {
+			padding-left: #{$value};
+		}
+		@include for-size(lg) {
+			padding-left: calc(#{$value}*1.25);
+		}
+		@include for-size(xl) {
+			padding-left: calc(#{$value}*1.5);
+		}
+	}
+	.inner-space--disable--left {
+		padding-left: 0;
+	}
+
+	.inner-space--#{$size}--right {
+		padding-right: calc(#{$value}*.75); 
+		@include for-size(sm) {
+			padding-right: calc(#{$value}*.875);
+		}
+		@include for-size(md) {
+			padding-right: #{$value};
+		}
+		@include for-size(lg) {
+			padding-right: calc(#{$value}*1.25);
+		}
+		@include for-size(xl) {
+			padding-right: calc(#{$value}*1.5);
+		}
+	}
+	.inner-space--disable--right {
+		padding-right: 0;
+	}
+	@each $breakpoint, $map in $breakpoints {
+		@include for-size($breakpoint) {
+			.#{$breakpoint}\:grid-gap--#{$size} {
+				grid-gap: calc(#{$value}*.75); 
+				@include for-size(sm) {
+					grid-gap: calc(#{$value}*.875);
+				}
+				@include for-size(md) {
+					grid-gap: #{$value};
+				}
+				@include for-size(lg) {
+					grid-gap: calc(#{$value}*1.25);
+				}
+				@include for-size(xl) {
+					grid-gap: calc(#{$value}*1.5);
+				}
+			}
+			.#{$breakpoint}\:inner-space--#{$size} {
+				padding: calc(#{$value}*.75); 
+				@include for-size(sm) {
+					padding: calc(#{$value}*.875);
+				}
+				@include for-size(md) {
+					padding: #{$value};
+				}
+				@include for-size(lg) {
+					padding: calc(#{$value}*1.25);
+				}
+				@include for-size(xl) {
+					padding: calc(#{$value}*1.5);
+				}
+			}
+			.#{$breakpoint}\:inner-space--disable {
+				padding: 0;
+			}
+
+			.#{$breakpoint}\:inner-space--#{$size}--top-bottom {
+				padding-top: calc(#{$value}*.75); 
+				padding-bottom: calc(#{$value}*.75); 
+				@include for-size(sm) {
+					padding-top: calc(#{$value}*.875);
+					padding-bottom: calc(#{$value}*.875);
+				}
+				@include for-size(md) {
+					padding-top: #{$value};
+					padding-bottom: #{$value};
+				}
+				@include for-size(lg) {
+					padding-top: calc(#{$value}*1.25);
+					padding-bottom: calc(#{$value}*1.25);
+				}
+				@include for-size(xl) {
+					padding-top: calc(#{$value}*1.5);
+					padding-bottom: calc(#{$value}*1.5);
+				}
+			}
+			.#{$breakpoint}\:inner-space--disable--top-bottom {
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+
+			.#{$breakpoint}\:inner-space--#{$size}--left-right {
+				padding-left: calc(#{$value}*.75); 
+				padding-right: calc(#{$value}*.75); 
+				@include for-size(sm) {
+					padding-left: calc(#{$value}*.875);
+					padding-right: calc(#{$value}*.875);
+				}
+				@include for-size(md) {
+					padding-left: #{$value};
+					padding-right: #{$value};
+				}
+				@include for-size(lg) {
+					padding-left: calc(#{$value}*1.25);
+					padding-right: calc(#{$value}*1.25);
+				}
+				@include for-size(xl) {
+					padding-left: calc(#{$value}*1.5);
+					padding-right: calc(#{$value}*1.5);
+				}
+			}
+			.#{$breakpoint}\:inner-space--disable--left-right {
+				padding-left: 0;
+				padding-right: 0;
+			}
+
+			.#{$breakpoint}\:inner-space--#{$size}--top {
+				padding-top: calc(#{$value}*.75); 
+				@include for-size(sm) {
+					padding-top: calc(#{$value}*.875);
+				}
+				@include for-size(md) {
+					padding-top: #{$value};
+				}
+				@include for-size(lg) {
+					padding-top: calc(#{$value}*1.25);
+				}
+				@include for-size(xl) {
+					padding-top: calc(#{$value}*1.5);
+				}
+			}
+			.#{$breakpoint}\:inner-space--disable--top {
+				padding-top: 0;
+			}
+
+			.#{$breakpoint}\:inner-space--#{$size}--bottom {
+				padding-bottom: calc(#{$value}*.75); 
+				@include for-size(sm) {
+					padding-bottom: calc(#{$value}*.875);
+				}
+				@include for-size(md) {
+					padding-bottom: #{$value};
+				}
+				@include for-size(lg) {
+					padding-bottom: calc(#{$value}*1.25);
+				}
+				@include for-size(xl) {
+					padding-bottom: calc(#{$value}*1.5);
+				}
+			}
+			.#{$breakpoint}\:inner-space--disable--bottom {
+				padding-bottom: 0;
+			}
+
+			.#{$breakpoint}\:inner-space--#{$size}--left {
+				padding-left: calc(#{$value}*.75); 
+				@include for-size(sm) {
+					padding-left: calc(#{$value}*.875);
+				}
+				@include for-size(md) {
+					padding-left: #{$value};
+				}
+				@include for-size(lg) {
+					padding-left: calc(#{$value}*1.25);
+				}
+				@include for-size(xl) {
+					padding-left: calc(#{$value}*1.5);
+				}
+			}
+			.#{$breakpoint}\:inner-space--disable--left {
+				padding-left: 0;
+			}
+
+			.#{$breakpoint}\:inner-space--#{$size}--right {
+				padding-right: calc(#{$value}*.75); 
+				@include for-size(sm) {
+					padding-right: calc(#{$value}*.875);
+				}
+				@include for-size(md) {
+					padding-right: #{$value};
+				}
+				@include for-size(lg) {
+					padding-right: calc(#{$value}*1.25);
+				}
+				@include for-size(xl) {
+					padding-right: calc(#{$value}*1.5);
+				}
+			}
+			.#{$breakpoint}\:inner-space--disable--right {
+				padding-right: 0;
+			}
+		}
+	}
+
+	// outer space
+	.outer-space--#{$size} {
+		margin: calc(#{$value}*.75); 
+		@include for-size(sm) {
+			margin: calc(#{$value}*.875);
+		}
+		@include for-size(md) {
+			margin: #{$value};
+		}
+		@include for-size(lg) {
+			margin: calc(#{$value}*1.25);
+		}
+		@include for-size(xl) {
+			margin: calc(#{$value}*1.5);
+		}
+	}
+	.outer-space--disable {
+		margin: 0;
+	}
+
+	.outer-space--#{$size}--top-bottom {
+		margin-top: calc(#{$value}*.75); 
+		margin-bottom: calc(#{$value}*.75); 
+		@include for-size(sm) {
+			margin-top: calc(#{$value}*.875);
+			margin-bottom: calc(#{$value}*.875);
+		}
+		@include for-size(md) {
+			margin-top: #{$value};
+			margin-bottom: #{$value};
+		}
+		@include for-size(lg) {
+			margin-top: calc(#{$value}*1.25);
+			margin-bottom: calc(#{$value}*1.25);
+		}
+		@include for-size(xl) {
+			margin-top: calc(#{$value}*1.5);
+			margin-bottom: calc(#{$value}*1.5);
+		}
+	}
+	.outer-space--disable--top-bottom {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	.outer-space--#{$size}--left-right {
+		margin-left: calc(#{$value}*.75); 
+		margin-right: calc(#{$value}*.75); 
+		@include for-size(sm) {
+			margin-left: calc(#{$value}*.875);
+			margin-right: calc(#{$value}*.875);
+		}
+		@include for-size(md) {
+			margin-left: #{$value};
+			margin-right: #{$value};
+		}
+		@include for-size(lg) {
+			margin-left: calc(#{$value}*1.25);
+			margin-right: calc(#{$value}*1.25);
+		}
+		@include for-size(xl) {
+			margin-left: calc(#{$value}*1.5);
+			margin-right: calc(#{$value}*1.5);
+		}
+	}
+	.outer-space--disable--left-right {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.outer-space--#{$size}--top {
+		margin-top: calc(#{$value}*.75); 
+		@include for-size(sm) {
+			margin-top: calc(#{$value}*.875);
+		}
+		@include for-size(md) {
+			margin-top: #{$value};
+		}
+		@include for-size(lg) {
+			margin-top: calc(#{$value}*1.25);
+		}
+		@include for-size(xl) {
+			margin-top: calc(#{$value}*1.5);
+		}
+	}
+	.outer-space--disable--top {
+		margin-top: 0;
+	}
+
+	.outer-space--#{$size}--bottom {
+		margin-bottom: calc(#{$value}*.75); 
+		@include for-size(sm) {
+			margin-bottom: calc(#{$value}*.875);
+		}
+		@include for-size(md) {
+			margin-bottom: #{$value};
+		}
+		@include for-size(lg) {
+			margin-bottom: calc(#{$value}*1.25);
+		}
+		@include for-size(xl) {
+			margin-bottom: calc(#{$value}*1.5);
+		}
+	}
+	.outer-space--disable--bottom {
+		margin-bottom: 0;
+	}
+
+	.outer-space--#{$size}--left {
+		margin-left: calc(#{$value}*.75); 
+		@include for-size(sm) {
+			margin-left: calc(#{$value}*.875);
+		}
+		@include for-size(md) {
+			margin-left: #{$value};
+		}
+		@include for-size(lg) {
+			margin-left: calc(#{$value}*1.25);
+		}
+		@include for-size(xl) {
+			margin-left: calc(#{$value}*1.5);
+		}
+	}
+	.outer-space--disable--left {
+		margin-left: 0;
+	}
+
+	.outer-space--#{$size}--right {
+		margin-right: calc(#{$value}*.75); 
+		@include for-size(sm) {
+			margin-right: calc(#{$value}*.875);
+		}
+		@include for-size(md) {
+			margin-right: #{$value};
+		}
+		@include for-size(lg) {
+			margin-right: calc(#{$value}*1.25);
+		}
+		@include for-size(xl) {
+			margin-right: calc(#{$value}*1.5);
+		}
+	}
+	.outer-space--disable--right {
+		margin-right: 0;
+	}
+	@each $breakpoint, $map in $breakpoints {
+		@include for-size($breakpoint) {
+			.#{$breakpoint}\:grid-gap--#{$size} {
+				grid-gap: calc(#{$value}*.75); 
+				@include for-size(sm) {
+					grid-gap: calc(#{$value}*.875);
+				}
+				@include for-size(md) {
+					grid-gap: #{$value};
+				}
+				@include for-size(lg) {
+					grid-gap: calc(#{$value}*1.25);
+				}
+				@include for-size(xl) {
+					grid-gap: calc(#{$value}*1.5);
+				}
+			}
+			.#{$breakpoint}\:outer-space--#{$size} {
+				margin: calc(#{$value}*.75); 
+				@include for-size(sm) {
+					margin: calc(#{$value}*.875);
+				}
+				@include for-size(md) {
+					margin: #{$value};
+				}
+				@include for-size(lg) {
+					margin: calc(#{$value}*1.25);
+				}
+				@include for-size(xl) {
+					margin: calc(#{$value}*1.5);
+				}
+			}
+			.#{$breakpoint}\:outer-space--disable {
+				margin: 0;
+			}
+
+			.#{$breakpoint}\:outer-space--#{$size}--top-bottom {
+				margin-top: calc(#{$value}*.75); 
+				margin-bottom: calc(#{$value}*.75); 
+				@include for-size(sm) {
+					margin-top: calc(#{$value}*.875);
+					margin-bottom: calc(#{$value}*.875);
+				}
+				@include for-size(md) {
+					margin-top: #{$value};
+					margin-bottom: #{$value};
+				}
+				@include for-size(lg) {
+					margin-top: calc(#{$value}*1.25);
+					margin-bottom: calc(#{$value}*1.25);
+				}
+				@include for-size(xl) {
+					margin-top: calc(#{$value}*1.5);
+					margin-bottom: calc(#{$value}*1.5);
+				}
+			}
+			.#{$breakpoint}\:outer-space--disable--top-bottom {
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+
+			.#{$breakpoint}\:outer-space--#{$size}--left-right {
+				margin-left: calc(#{$value}*.75); 
+				margin-right: calc(#{$value}*.75); 
+				@include for-size(sm) {
+					margin-left: calc(#{$value}*.875);
+					margin-right: calc(#{$value}*.875);
+				}
+				@include for-size(md) {
+					margin-left: #{$value};
+					margin-right: #{$value};
+				}
+				@include for-size(lg) {
+					margin-left: calc(#{$value}*1.25);
+					margin-right: calc(#{$value}*1.25);
+				}
+				@include for-size(xl) {
+					margin-left: calc(#{$value}*1.5);
+					margin-right: calc(#{$value}*1.5);
+				}
+			}
+			.#{$breakpoint}\:outer-space--disable--left-right {
+				margin-left: 0;
+				margin-right: 0;
+			}
+
+			.#{$breakpoint}\:outer-space--#{$size}--top {
+				margin-top: calc(#{$value}*.75); 
+				@include for-size(sm) {
+					margin-top: calc(#{$value}*.875);
+				}
+				@include for-size(md) {
+					margin-top: #{$value};
+				}
+				@include for-size(lg) {
+					margin-top: calc(#{$value}*1.25);
+				}
+				@include for-size(xl) {
+					margin-top: calc(#{$value}*1.5);
+				}
+			}
+			.#{$breakpoint}\:outer-space--disable--top {
+				margin-top: 0;
+			}
+
+			.#{$breakpoint}\:outer-space--#{$size}--bottom {
+				margin-bottom: calc(#{$value}*.75); 
+				@include for-size(sm) {
+					margin-bottom: calc(#{$value}*.875);
+				}
+				@include for-size(md) {
+					margin-bottom: #{$value};
+				}
+				@include for-size(lg) {
+					margin-bottom: calc(#{$value}*1.25);
+				}
+				@include for-size(xl) {
+					margin-bottom: calc(#{$value}*1.5);
+				}
+			}
+			.#{$breakpoint}\:outer-space--disable--bottom {
+				margin-bottom: 0;
+			}
+
+			.#{$breakpoint}\:outer-space--#{$size}--left {
+				margin-left: calc(#{$value}*.75); 
+				@include for-size(sm) {
+					margin-left: calc(#{$value}*.875);
+				}
+				@include for-size(md) {
+					margin-left: #{$value};
+				}
+				@include for-size(lg) {
+					margin-left: calc(#{$value}*1.25);
+				}
+				@include for-size(xl) {
+					margin-left: calc(#{$value}*1.5);
+				}
+			}
+			.#{$breakpoint}\:outer-space--disable--left {
+				margin-left: 0;
+			}
+
+			.#{$breakpoint}\:outer-space--#{$size}--right {
+				margin-right: calc(#{$value}*.75); 
+				@include for-size(sm) {
+					margin-right: calc(#{$value}*.875);
+				}
+				@include for-size(md) {
+					margin-right: #{$value};
+				}
+				@include for-size(lg) {
+					margin-right: calc(#{$value}*1.25);
+				}
+				@include for-size(xl) {
+					margin-right: calc(#{$value}*1.5);
+				}
+			}
+			.#{$breakpoint}\:outer-space--disable--right {
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+
+// radius classes
+@each $radius, $value in $radius--group {
+	.radius--#{$radius} {
+		@include radius($value);
+	}
+}
+
+// shadow classes
+@each $shadow, $value in $shadow--group {
+	.shadow-text--#{$shadow} {
+		@include shadow(text, $value);
+	}
+	.shadow-box--#{$shadow} {
+		@include shadow(box, $value);
+	}
+}
+
+// sticky option
+.sticky {
+	top: 0;
+	position: sticky;
+	position: -webkit-sticky;
+}
+
+// text aligns
+.text--left {
+	text-align: left;
+}
+.text--right {
+	text-align: right;
+}
+.text--center {
+	text-align: center;
+}
+.text--justify {
+	text-align: justify;
+}
+@each $breakpoint, $map in $breakpoints {
+	@include for-size($breakpoint) {
+		.#{$breakpoint}\:text--left {
+			text-align: left;
+		}
+		.#{$breakpoint}\:text--right {
+			text-align: right;
+		}
+		.#{$breakpoint}\:text--center {
+			text-align: center;
+		}
+		.#{$breakpoint}\:text--justify {
+			text-align: justify;
+		}
+	}
+}

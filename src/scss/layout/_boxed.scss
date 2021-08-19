@@ -1,0 +1,189 @@
+[class*=boxed--] {
+	@extend %block-flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-items: center;
+	align-content: center;	
+	justify-content: center; 
+}
+
+.boxed--small {
+	padding-left: 10vw;
+	padding-right: 10vw;
+
+	@include for-size(sm) {
+		padding-left: 25vw;
+		padding-right: 25vw;
+	}
+
+	@include for-size(md) {
+		padding-left: 30vw;
+		padding-right: 30vw;
+	}
+
+	&>* {
+		max-width: getBoxedMax(small);
+	}
+
+	&--left { 
+		padding-left: 15vw;
+		padding-right: 5vw;
+
+		@include for-size(sm) {
+			padding-left: 5vw;
+			padding-right: 45vw;
+		}
+
+		@include for-size(md) {
+			padding-left: 5vw;
+			padding-right: 55vw;
+		}
+
+		&>* {
+			max-width: getBoxedMax(small);
+		}
+	}
+
+	&--right {
+		padding-left: 5vw;
+		padding-right: 15vw;
+
+		@include for-size(sm) {
+			padding-left: 45vw;
+			padding-right: 5vw;
+		}
+
+		@include for-size(md) {
+			padding-left: 55vw;
+			padding-right: 5vw;
+		}
+
+		&>* {
+			max-width: getBoxedMax(small);
+		}
+	}
+}
+
+.boxed--medium {
+	padding-left: 5vw;
+	padding-right: 5vw;
+
+	@include for-size(sm) {
+		padding-left: 17.5vw;
+		padding-right: 17.5vw;
+	}
+
+	@include for-size(md) {
+		padding-left: 25vw;
+		padding-right: 25vw;
+	}
+
+	&>* {
+		max-width: getBoxedMax(medium);
+	}
+
+	&--left {
+		padding-left: 5vw;
+		padding-right: 5vw;
+
+		@include for-size(sm) {
+			padding-left: 5vw;
+			padding-right: 30vw;
+		}
+
+		@include for-size(md) {
+			padding-left: 5vw;
+			padding-right: 45vw;
+		}
+
+		&>* {
+			max-width: getBoxedMax(medium);
+		}
+	}
+
+	&--right {
+		padding-left: 5vw;
+		padding-right: 5vw;
+
+		@include for-size(sm) {
+			padding-left: 30vw;
+			padding-right: 5vw;
+		}
+
+		@include for-size(md) {
+			padding-left: 45vw;
+			padding-right: 5vw;
+		}
+
+		&>* {
+			max-width: getBoxedMax(medium);
+		}
+	}
+}
+
+.boxed--large {
+	padding-left: 2.5vw;
+	padding-right: 2.5vw;
+
+	@include for-size(sm) {
+		padding-left: 10vw;
+		padding-right: 10vw;
+	}
+
+	@include for-size(md) {
+		padding-left: 12.5vw;
+		padding-right: 12.5vw;
+	}
+
+	&>* {
+		max-width: getBoxedMax(large);
+	}
+
+	&--left {
+		padding-left: 2.5vw;
+		padding-right: 2.5vw;
+
+		@include for-size(sm) {
+			padding-left: 5vw;
+			padding-right: 15vw;
+		}
+
+		@include for-size(md) {
+			padding-left: 5vw;
+			padding-right: 20vw;
+		}
+
+		&>* {
+			max-width: getBoxedMax(large);
+		}
+	}
+
+	&--right {
+		padding-left: 2.5vw;
+		padding-right: 2.5vw;
+
+		@include for-size(sm) {
+			padding-left: 10vw;
+			padding-right: 5vw;
+		}
+
+		@include for-size(md) {
+			padding-left: 20vw;
+			padding-right: 5vw;
+		}
+
+		&>* {
+			max-width: getBoxedMax(large);
+		}
+	}
+}
+
+.boxed--full {
+		padding-left: 2.5vw;
+		padding-right: 2.5vw;
+
+	@include for-size(lg) {
+		padding-left: 5vw;
+		padding-right: 5vw;
+	}
+}

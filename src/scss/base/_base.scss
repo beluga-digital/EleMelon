@@ -1,0 +1,15 @@
+@import url(getTypo(font-import));
+
+html {
+	font-size: getTypo(root-size);
+}
+
+body {
+	background: getColor(body);
+	font-family: getTypo(base-family);
+	color: getColor(font-base);
+	font-size: nth(getTypo(base-sizes), 1); // fallback font-size
+	font-size: clamp(getTypo(base-sizes)); 
+	line-height: getTypo(base-lheight);
+	font-weight: getTypo(base-weight); 
+}

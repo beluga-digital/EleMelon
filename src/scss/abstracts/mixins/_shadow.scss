@@ -1,0 +1,6 @@
+@mixin shadow($option, $values...) {
+	#{$option}-shadow: $values;
+	-moz-#{$option}-shadow: $values;
+	-webkit-#{$option}-shadow: $values;
+	-o-#{$option}-shadow: $values;
+}

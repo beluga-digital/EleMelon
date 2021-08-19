@@ -1,0 +1,121 @@
+/// elements configuration
+/// @access private
+/// @author dba.codes – Daniel Baumert
+/// @param {Object} $themes - Object that contains all defined configuration
+
+$elemelon: (
+	theme: (
+		colors: (
+			primary: hsl(144, 100%, 40%),
+			primary-light: colorLighten(hsl(144, 100%, 40%), 15%),
+			primary-dark: colorDarken(hsl(144, 100%, 40%), 15%),
+			secondary: hsl(343, 100%, 63%),
+			secondary-light: colorLighten(hsl(343, 100%, 63%), 15%),
+			secondary-dark: colorDarken(hsl(343, 100%, 63%), 15%),
+			accent: hsl(335, 23%, 16%), 
+			accent-light: colorLighten(hsl(335, 23%, 16%), 15%),
+			accent-dark: colorDarken(hsl(335, 23%, 16%), 15%),
+			white: hsl(0, 0%, 100%),
+			black: hsl(0, 0%, 0%),
+			light: hsl(0, 0%, 95%),
+			dark: hsl(0, 0%, 20%),
+			body: hsl(335, 23%, 97%),
+			font-base: hsl(0, 0%, 20%),
+			font-headline: hsl(335, 23%, 16%)
+		),
+		typography: (
+			root-size: 16px,																			/// !important value for sizing like rem sizes
+			font-import: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap',	/// font-import; e.g. google fonts
+			base-family: ('Inter', sans-serif),
+			base-auto-hyphens: true,
+			base-weight: 400,
+			base-sizes: (1rem, 2vw, 1.125rem),
+			base-lheight: 140%,
+			small-sizes: (0.8rem, 2vw, 0.95rem),
+			small-lheight: 125%,
+			headline-family: ('Inter', sans-serif),
+			headline-auto-hyphens: false,
+			headline-weight: 800,
+			h1-sizes: (2.125rem, 7vw, 3rem),
+			h1-lheight: 115%,
+			h2-sizes: (1.75rem, 4.5vw, 2.625rem),
+			h2-lheight: 125%,
+			h3-sizes: (1.375rem, 3.75vw, 2.125rem),
+			h3-lheight: 130%,
+			h4-sizes: (1.2rem, 3vw, 1.75rem),
+			h4-lheight: 135%
+		),
+		spacing: (
+			small: 1rem,
+			medium: 2.5rem,
+			large: 5rem
+		),
+		radius: (
+			small: 0.25rem,
+			medium: 0.75rem,
+			large: 1.75rem
+		),
+		shadow: (
+			small: 0 2px 6px rgba(0, 0, 0, 0.075),
+			medium: 0 9px 16px rgba(0, 0, 0, 0.15),
+			large: 0 12px 24px rgba(0, 0, 0, 0.25)
+		)
+	),
+	grid: (
+		columns-max: 12,					/// maximum rendering of column classes
+		rows-max: 12,						/// maximum rendering of row classes
+		alignment: (						/// default alignment for the grid class
+			justify-items: center,			
+			align-items: center,
+			justify-content: center,
+			align-content: center 
+		),
+		grid-gap: (							/// combinated grid gap between rows and columns; medium is used as default grid gap
+			small: 0.75rem,
+			medium: 1.5rem,
+			large: 2.5rem
+		), 
+		row-gap: (							/// gap between rows
+			small: 0.75rem,
+			medium: 1.5rem,
+			large: 2.5rem
+		), 
+		column-gap: (						/// gap between columns
+			small: 0.75rem,
+			medium: 1.5rem,
+			large: 2.5rem
+		)
+	),
+	breakpoints: (							/// breakpoints which can use in the for-size function
+		sm: 600px,							/// the naming here is different. we use the short version to make a difference between breakpoints and other sizing-options.
+		md: 900px,
+		lg: 1200px,
+		xl: 1500px
+	),
+	boxed-layout: (
+		maximum-width: (					/// maximum widths for the boxed-layout types
+			small: 720px,
+			medium: 1080px,
+			large: 1440px
+		)
+	),
+	debug: (
+		enable: false,
+		breakpoints: true,
+		layout: (
+			enable: true,
+			color--dark: rgba(20, 20, 255, 0.15),
+			color--light: rgba(20, 20, 255, 0.075),
+			lines: true
+		),
+		pesticide: (						/// !attention: maybe this destroys your layout, because it injects positionings on your elements 
+			enable: true,					/// enables pesticide in general
+			labels: false,					/// show the label of each element
+			text: true,						/// enables pesticide on text elements (h1-h6, p, small, q, blockquote, ...)
+			media: true,					/// enables pesticide on media elements
+			structure: true,
+			links: true,
+			data-display: true
+		)
+	)
+);

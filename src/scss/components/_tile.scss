@@ -1,0 +1,95 @@
+.tile {
+	@extend %block;
+	@extend .inner-space--medium;
+	@include radius(getRadius(medium));
+
+	&.has--background-image {
+		position: relative;
+		overflow: hidden;
+
+		> div {
+			position: relative;
+			z-index: 1;
+		}
+	}
+
+	&.tile-size--medium--left {
+		@include for-size(md) {
+			padding-right: 20%;
+		}
+
+		@include for-size(lg) {
+			padding-right: 35%;
+		}
+	}
+
+	&.tile-size--medium--right {
+		@include for-size(md) {
+			padding-left: 20%;
+		}
+
+		@include for-size(lg) {
+			padding-left: 35%;
+		}
+	}
+
+	&.tile-size--medium--center {
+		@include for-size(md) {
+			padding-left: 10%;
+			padding-left: 10%;
+		}
+
+		@include for-size(lg) {
+			padding-left: 17.5%;
+			padding-right: 17.5%;
+		}
+	}
+
+	&[class*=tile-size--large] {
+		@extend .inner-space--large;
+	}
+	&.tile-size--large--left {
+		@include for-size(sm) {
+			padding-right: 15%;
+		}
+
+		@include for-size(md) {
+			padding-right: 35%;
+		}
+
+		@include for-size(lg) {
+			padding-right: 50%;
+		}
+	}
+
+	&.tile-size--large--right {
+		@include for-size(sm) {
+			padding-left: 15%;
+		}
+
+		@include for-size(md) {
+			padding-left: 35%;
+		}
+
+		@include for-size(lg) {
+			padding-left: 50%;
+		}
+	}
+
+	&.tile-size--large--center {
+		@include for-size(sm) {
+			padding-left: 7.5%;
+			padding-right: 7.5%;
+		}
+
+		@include for-size(md) {
+			padding-left: 17.5%;
+			padding-right: 17.5%;
+		}
+
+		@include for-size(lg) {
+			padding-left: 25%;
+			padding-right: 25%;
+		}
+	}
+}

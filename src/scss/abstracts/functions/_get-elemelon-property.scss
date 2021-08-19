@@ -1,0 +1,85 @@
+/// get theme property
+/// @author dba.codes – Daniel Baumert
+/// @access public
+/// @param {String} $group - group which is defined in the configuration
+/// @param {String} $property - property name which is defined in the configuration
+
+/// get elements property
+@function getProps($properties...) {
+	@return map-deep-get($elemelon, $properties...);
+}
+
+/// get theme property
+@function getThemeProps($properties...) {
+	@return getProps(theme, $properties...);
+}
+
+/// get color property
+@function getColor($property) {
+	@return getThemeProps(colors, $property);
+}
+
+/// get typography property
+@function getTypo($property) {
+	@return getThemeProps(typography, $property);
+}
+
+/// get spacing property
+@function getSpacing($property) {
+	@return getThemeProps(spacing, $property);
+}
+
+/// get radius property
+@function getRadius($property) {
+	@return getThemeProps(radius, $property);
+}
+
+/// get shadow property
+@function getShadow($property) {
+	@return getThemeProps(shadow, $property);
+}
+
+/// get grid property
+@function getGridProps($properties...) {
+	@return getProps(grid, $properties...);
+}
+
+/// get alignment property
+@function getAlignment($property) {
+	@return getGridProps(alignment, $property);
+}
+
+/// get grid-gap property
+@function getGridGap($property) {
+	@return getGridProps(grid-gap, $property);
+}
+
+/// get row-gap property
+@function getRowGap($property) {
+	@return getGridProps(row-gap, $property);
+}
+
+/// get column-gap property
+@function getColumnGap($property) {
+	@return getGridProps(column-gap, $property);
+}
+
+/// get breakpoint property
+@function getBreakpoint($property) {
+	@return getProps(breakpoints, $property);
+}
+
+/// get boxed-layout property
+@function getBoxedProps($properties...) {
+	@return getProps(boxed-layout, $properties...);
+}
+
+/// get maximum-width property
+@function getBoxedMax($property) {
+	@return getBoxedProps(maximum-width, $property);
+}
+
+/// get debug property
+@function getDebugProps($properties...) {
+	@return getProps(debug, $properties...);
+}

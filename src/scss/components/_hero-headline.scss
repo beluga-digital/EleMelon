@@ -1,0 +1,21 @@
+[class*=hero__headline] {
+	.tag {
+		text-transform: uppercase;
+		font-size: nth(getTypo(small-sizes), 1);
+		line-height: 100%;
+		font-weight: getTypo(headline-weight);
+	}
+	h1, h2, h3, h4 {
+		margin-top: 0;
+	}
+}
+.hero__headline--2-columns {
+	p {
+		column-count: 1;
+
+		@include for-size(md) {
+			column-count: 2;
+			column-gap: getSpacing(large);
+		}
+	}
+}

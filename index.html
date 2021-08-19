@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>EleMelon – early alpha 0.0.1</title>
+    <link rel="stylesheet" href="src/css/main.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+</head>
+
+<body>
+    <header class="header sticky boxed--full">
+        <div class="grid columns--2 justify-content--space-between justify-items--space-between">
+            <a href="/" class="logo">
+                <img src="/src/img/elemelon_logo.svg" />
+            </a>
+            <nav class="nav">
+                <ul class="menu--horizontal">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">Docs</a></li>
+                    <li><a href="/">Examples</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="main">
+        <section class="section boxed--medium">
+            <figure class="image">
+                <img src="src/img/elemelon_header_3-1.svg" />
+            </figure>
+        </section>
+        <section class="section boxed--small">
+            <div class="hero__headline">
+                <span class="tag fc--primary">Welcome to</span>
+                <h1>EleMelon, a living style and grid system.</h1>
+                <p>Eine wunderbare Heiterkeit hat meine ganze Seele eingenommen, gleich den süßen Frühlingsmorgen, die
+                    ich mit ganzem
+                    Herzen genieße. Ich bin allein und freue mich meines Lebens in dieser Gegend, die für solche Seelen
+                    geschaffen ist wie
+                    die meine. Ich bin so glücklich, mein Bester, so ganz in dem Gefühl.</p>
+            </div>
+        </section>
+        <section class="section boxed--large">
+            <div class="tile tile-size--large--center bc--accent has--background-image">
+                <figure class="image--background filter--black-white blend--multiply" style="background: url(https://images.unsplash.com/photo-1505459668311-8dfac7952bf0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80);" />
+                </figure>
+                <div class="hero__headliner text--center">
+                    <span class="tag fc--white">Fluid layout</span>
+                    <h2 class="fc--white">A layout that flows arround your needs.</h2>
+                    <p class="fc--white">You can modify all things you need in the EleMelon config file. This file covers all setting options from grid, layout to colors or fonts.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section boxed--medium">
+            <div class="grid md:columns--2 lg:columns--3 grid-gap--medium">
+                <div class="cell md:column-span--2 lg:column-span--3 headline">
+                    <h2>Color Swatch</h2>
+                </div>
+
+                <div class="cell inner-space--medium radius--medium bc--primary fc--light">Primary
+                </div>
+                <div class="cell inner-space--medium radius--medium bc--primary-light fc--light">
+                    Primary
+                    Lighten</div>
+                <div class="cell inner-space--medium radius--medium bc--primary-dark fc--light">
+                    Primary
+                    Darken</div>
+                <div class="cell inner-space--medium radius--medium bc--secondary fc--light">
+                    Secondary
+                </div>
+                <div class="cell inner-space--medium radius--medium bc--secondary-light fc--light">
+                    Secondary
+                    Lighten</div>
+                <div class="cell inner-space--medium radius--medium bc--secondary-dark fc--light">
+                    Secondary
+                    Darken</div>
+                <div class="cell inner-space--medium radius--medium bc--accent fc--light">Accent
+                </div>
+                <div class="cell inner-space--medium radius--medium bc--accent-light fc--light">
+                    Accent
+                    Lighten</div>
+                <div class="cell inner-space--medium radius--medium bc--accent-dark fc--light">Accent
+                    Darken</div>
+                <div class="cell inner-space--medium radius--medium bc--white shadow-box--small">White</div>
+                <div class="cell inner-space--medium radius--medium bc--black fc--white shadow-box--small">Black</div>
+                <div class="cell inner-space--medium radius--medium bc--light shadow-box--small">Light</div>
+                <div class="cell inner-space--medium radius--medium bc--dark fc--light shadow-box--small">Dark</div>
+                <div class="cell inner-space--medium radius--medium bc--body shadow-box--small">Body</div>
+                <div class="cell inner-space--medium radius--medium bc--font-base fc--white shadow-box--small">Font Base
+                </div>
+                <div class="cell inner-space--medium radius--medium bc--font-headline fc--white shadow-box--small">Font
+                    Headline</div>
+            </div>
+        </section>
+    </main>
+    <script type="text/javascript" src="src/js/elemelon-debug.js"></script>
+</body>
+
+</html>

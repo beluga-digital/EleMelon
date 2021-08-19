@@ -1,0 +1,5 @@
+{
+    "name": "dba/elemelon",
+    "description": "EleMelon is a powerful boilerplate with a grid, basic components and layouts. it is based on SCSS. The architecture is based on the recommended 7-1 pattern of SCSS.",
+    "require": {}
+}

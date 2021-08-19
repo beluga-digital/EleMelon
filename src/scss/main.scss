@@ -1,0 +1,73 @@
+/// main file that include als scss files like abstracts, vendors, base, components, pages and themes
+/// @access public
+/// @author dba.codes – Daniel Baumert
+/// @param {*} @import - Import files
+
+/// 1. abstracts
+/// abstracts are functions, mixins, placeholders, variables and other properties which help you to create your own theme.
+/// These don't include classes or other expenditure.
+/// 1.1. functions
+@import 'abstracts/functions/color-adjustment';
+@import 'abstracts/functions/get-elemelon-property';
+@import 'abstracts/functions/map-deep';
+/// 1.2. mixins
+@import 'abstracts/mixins/backdrop-filter';
+@import 'abstracts/mixins/background-property';
+@import 'abstracts/mixins/background-size';
+@import 'abstracts/mixins/box-sizing';
+@import 'abstracts/mixins/filter';
+@import 'abstracts/mixins/for-size';
+@import 'abstracts/mixins/gradient';
+@import 'abstracts/mixins/hyphens';
+@import 'abstracts/mixins/keyframes';
+@import 'abstracts/mixins/opacity';
+@import 'abstracts/mixins/position';
+@import 'abstracts/mixins/prefix';
+@import 'abstracts/mixins/radius';
+@import 'abstracts/mixins/shadow';
+@import 'abstracts/mixins/transform';
+@import 'abstracts/mixins/transition';
+/// 1.3. placeholders
+@import 'abstracts/placeholders/block';
+@import 'abstracts/placeholders/block-flex';
+@import 'abstracts/placeholders/block-grid';
+@import 'abstracts/placeholders/inline-flex';
+@import 'abstracts/placeholders/inline-grid';
+/// 1.4. variables
+@import 'abstracts/variables/elemelon-config';
+
+/// 2. vendors
+/// vendors are external libraries or third-party files.
+
+/// 3. base
+/// The base is what we might call the boilerplate code for the project.
+/// In there, you might find the reset file, some typographic rules, and probably a stylesheet defining some standard styles for commonly used HTML elements.
+@import 'base/normalize';
+@import 'base/debug';
+@import 'base/base';
+@import 'base/global-classes';
+@import 'base/typography'; 
+
+/// 4. layout
+/// This contains everything that takes part in laying out the site or application.
+@import 'layout/boxed';
+@import 'layout/container';
+@import 'layout/grid';
+@import 'layout/header';
+@import 'layout/main';
+@import 'layout/section';
+
+/// 5. components
+/// Components can be anything, as long as they:
+/// do one thing and one thing only, are re-usable and re-used across the project, are independent.
+@import 'components/hero-headline';
+@import 'components/image';
+@import 'components/logo';
+@import 'components/menu';
+@import 'components/tile';
+
+/// 6. pages
+/// If you have page-specific styles, it is better to put them here.
+
+/// 7. themes
+/// On large sites and applications, it is not unusual to have different themes. You can put them here.
