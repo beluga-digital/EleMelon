@@ -4,8 +4,8 @@ h3,
 h4,
 h5,
 h6 {
-	margin-top: getSpacing(large);
-	margin-bottom: getSpacing(medium);
+	@extend .outer-space--medium--top;
+	@extend .outer-space--small--bottom;
 	color: getColor(font-headline);
 	font-weight: getTypo(headline-weight); 
 
@@ -50,7 +50,7 @@ p {
 	font-size: nth(getTypo(base-sizes), 1); // fallback font-size
 	font-size: clamp(getTypo(base-sizes));
 	line-height: getTypo(base-lheight);
-	margin-bottom: getSpacing(small);
+	@extend .outer-space--small--bottom;
 	@if getTypo(base-auto-hyphens) == true {
 		@include hyphens(auto);
 	}
@@ -64,7 +64,7 @@ small {
 	font-size: nth(getTypo(small-sizes), 1);
 	font-size: clamp(getTypo(small-sizes));
 	line-height: getTypo(small-lheight);
-	margin-bottom: getSpacing(small);
+	@extend .outer-space--small--bottom;
 	@if getTypo(base-auto-hyphens) {
 		@include hyphens(auto);
 	}
